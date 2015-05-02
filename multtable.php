@@ -6,7 +6,7 @@ ini_set('display_errors', 'On');
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Multiplication</title>
+		<title>Multiplication Table</title>
 	</head>
 	<body>
 		<?php
