@@ -26,34 +26,41 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout') {
 		#Starts a new session or resumes a previous one
 		#session_start();
 		
-		#No username was entered
-		if(!isset($_POST['username'])) {
-			echo "A username must be entered. Click <a href=\"login.php\">here</a> ";
-			echo " to return to the login screen.<br />";
-		}	
+
 		if(session_status() == PHP_SESSION_ACTIVE) {
+			#No username was entered
+			if(!isset($_SESSION['username'])) {
+				
+				if(!isset($_POST['username'])) {
+					echo "A username must be entered. Click <a href=\"login.php\">here</a> ";
+					echo " to return to the login screen.<br />";					
+				}
+
+			}
 			
-			
-			#Write to session array
-			#Username was entered
 			if(isset($_POST['username'])) {
-				$_SESSION['username'] = $_POST['username'];
-			}
+				#Write to session array
+				#Username was entered
+				if(isset($_POST['username'])) {
+					$_SESSION['username'] = $_POST['username'];
+				}
 
-			#User has not visited session before
-			if(!isset($_SESSION['visits'])) {
-				$_SESSION['visits'] = 0;
-			}
+				#User has not visited session before
+				if(!isset($_SESSION['visits'])) {
+					$_SESSION['visits'] = 0;
+				}
 
-			#Read from session array
-			echo "Hello ".$_SESSION['username'].". You have visited this page ".$_SESSION['visits']." times ";
-			echo "before.<br />";
-			echo "Click <a href=\"content2.php\">here</a> for the next page.<br />";
-			
-			echo "Click <a href=\"content1.php?action=logout\">here</a> to logout.";
+				#Read from session array
+				echo "Hello ".$_SESSION['username'].". You have visited this page ".$_SESSION['visits']." times ";
+				echo "before.<br />";
+				echo "Click <a href=\"content2.php\">here</a> for the next page.<br />";
+				
+				echo "Click <a href=\"content1.php?action=logout\">here</a> to logout.";
 
-			$_SESSION['visits']++;
+				$_SESSION['visits']++;
+				
 			}
+		}
  	?>
 	</body>
 </html>

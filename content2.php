@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'On');
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -10,14 +11,21 @@ ini_set('display_errors', 'On');
 	</head>
 	<body>
 	<?php
-		#No username was entered
-		if(!isset($_POST['username'])) {
-			echo "A username must be entered. Click <a href=\"login.php\">here</a> ";
-			echo " to return to the login screen.";
+	
+		if(session_status() == PHP_SESSION_ACTIVE) {
+			
+			echo "You have made it to page 2, ".$_SESSION['username']."! ";
+			
+			#No username was entered
+			if(!isset($_SESSION['username'])) {
+				echo "A username must be entered. Click <a href=\"login.php\">here</a> ";
+				echo " to return to the login screen.";
+			}
+			else {
+				echo "Now click <a href=\"content1.php\">here</a> for the previous page.";
+			}
 		}
-		else {
-			echo "Click <a href=\"content2.php\">here</a> for the previous page.";
-		}
+		
  	?>
 	</body>
 </html>	
