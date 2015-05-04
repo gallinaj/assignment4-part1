@@ -1,0 +1,13 @@
+Log for Assignment 4, CS290
+
+Start:	Fri, 1 May 2015 19:46:59
+End:	Fri, 1 May 2015 21:21:29
+Tasks:	Created initial files, built an html file to test the php files. Worked on multtable.php.
+
+Start:	Sat, 2 May 2015 09:25
+End:	Sat, 2 May 2015 16:09:23
+Tasks:	Finished writing multtable.php. Completed most of login series of files; still need to have content2.php acknowledge name being passed. Worked on loopback file.
+
+Start:	Sun, 3 May 2015 21:15
+End: 	Sun, 3 May 2015 22:02
+Tasks:	Loopback is now complete. Got the login files to transfer the session back and forth. Assignment complete.
