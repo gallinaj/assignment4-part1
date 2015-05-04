@@ -25,20 +25,19 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout') {
 	<?php
 		#Starts a new session or resumes a previous one
 		#session_start();
-		
 
 		if(session_status() == PHP_SESSION_ACTIVE) {
-			#No username was entered
-#			if(!isset($_SESSION['username'])) {
-				
-				if(!isset($_POST['username'])) {
-					echo "A username must be entered. Click <a href=\"http://web.engr.oregonstate.edu/~gallinaj/assignment_4/login.php\">here</a>";
-					echo " to return to the login screen.<br />";					
-				}
 
-#			}
-			
-			if(isset($_POST['username'])) {
+		#No username was entered
+			if(!isset($_SESSION['username']) XOR isset($_POST['username'])) {
+#				if(!isset($_POST['username'])) {
+					echo "A username must be entered. Click ";
+					echo "<a href=\"http://web.engr.oregonstate.edu/~gallinaj/assignment_4/login.php\">here</a>";
+					echo " to return to the login screen.<br />";					
+#				}
+			}
+
+			if(isset($_SESSION['username']) || isset($_POST['username'])) {
 				#Write to session array
 				#Username was entered
 				if(isset($_POST['username'])) {

@@ -18,32 +18,42 @@ ini_set('display_errors', 'On');
 		
  		if($_SERVER['REQUEST_METHOD'] == 'GET') {
 
-			echo "{\"Type\":\"[GET]\"";
-
-			foreach($_GET as $key => $value) {
-				
-				if($value == null) {
-					$value = "null";
-				}
-
-				echo "{\"$key\":\"$value\"}";
+			if(empty($_GET)) {
+				echo "No parameters entered";
 			}
-			echo "}";
+			else {
+				
+				echo "{\"Type\":\"[GET]\"";
+
+				foreach($_GET as $key => $value) {
+				
+					if($value == null) {
+						$value = "null";
+					}
+					echo "{\"$key\":\"$value\"}";
+				}
+				echo "}";
+			}
 		}
 
 		else {
-			echo "{\"Type\":\"[POST]\"";
-
-			foreach($_POST as $key => $value) {
-				
-				if($value == null) {
-					$value = "null";
-				}
-				
-				echo "{\"$key\":\"$value\"}";
 			
+			if(empty($_POST)) {
+				echo "No parameters entered";
 			}
-			echo "}";	
+			else {
+				echo "{\"Type\":\"[POST]\"";
+
+				foreach($_POST as $key => $value) {
+					
+					if($value == null) {
+						$value = "null";
+					}
+					echo "{\"$key\":\"$value\"}";
+				}
+				echo "}";	
+				
+			}
 		} 
 #			echo json_encode($_GET), "\n";
 #			echo json_encode($_POST);
