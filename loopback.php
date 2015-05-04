@@ -16,8 +16,7 @@ ini_set('display_errors', 'On');
 #		echo json_encode($a);
 #		echo "</p>";
 		
- 		if(isset($_GET)) {
-#			echo json_encode($_GET), "\n";
+ 		if($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 			echo "{\"Type\":\"[GET]\"";
 
@@ -31,14 +30,12 @@ ini_set('display_errors', 'On');
 			}
 			echo "}";
 		}
-		
-		if(isset($_POST)) {
-#		else {
-#			echo json_encode($_POST);
+
+		else {
 			echo "{\"Type\":\"[POST]\"";
 
 			foreach($_POST as $key => $value) {
-
+				
 				if($value == null) {
 					$value = "null";
 				}
@@ -50,8 +47,6 @@ ini_set('display_errors', 'On');
 		} 
 #			echo json_encode($_GET), "\n";
 #			echo json_encode($_POST);
-
-		
 		?>
 	</body>
 </html>

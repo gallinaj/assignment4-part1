@@ -29,14 +29,14 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout') {
 
 		if(session_status() == PHP_SESSION_ACTIVE) {
 			#No username was entered
-			if(!isset($_SESSION['username'])) {
+#			if(!isset($_SESSION['username'])) {
 				
 				if(!isset($_POST['username'])) {
-					echo "A username must be entered. Click <a href=\"login.php\">here</a> ";
+					echo "A username must be entered. Click <a href=\"http://web.engr.oregonstate.edu/~gallinaj/assignment_4/login.php\">here</a>";
 					echo " to return to the login screen.<br />";					
 				}
 
-			}
+#			}
 			
 			if(isset($_POST['username'])) {
 				#Write to session array
@@ -53,9 +53,11 @@ if(isset($_GET['action']) && $_GET['action'] == 'logout') {
 				#Read from session array
 				echo "Hello ".$_SESSION['username'].". You have visited this page ".$_SESSION['visits']." times ";
 				echo "before.<br />";
-				echo "Click <a href=\"content2.php\">here</a> for the next page.<br />";
+				echo "Click <a href=\"http://web.engr.oregonstate.edu/~gallinaj/assignment_4/content2.php\">here</a> ";
+				echo "for the next page.<br />";
 				
-				echo "Click <a href=\"content1.php?action=logout\">here</a> to logout.";
+				echo "Click <a href=\"http://web.engr.oregonstate.edu/~gallinaj/assignment_4/content1.php?action=logout\">here</a> ";
+				echo "to logout.";
 
 				$_SESSION['visits']++;
 				

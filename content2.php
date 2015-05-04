@@ -18,11 +18,13 @@ session_start();
 			
 			#No username was entered
 			if(!isset($_SESSION['username'])) {
-				echo "A username must be entered. Click <a href=\"login.php\">here</a> ";
+				echo "A username must be entered. Click ";
+				echo "<a href=\"http://web.engr.oregonstate.edu/~gallinaj/assignment_4/login.php\">here</a> ";
 				echo " to return to the login screen.";
 			}
 			else {
-				echo "Now click <a href=\"content1.php\">here</a> for the previous page.";
+				echo "Now click <a href=\"http://web.engr.oregonstate.edu/~gallinaj/assignment_4/content1.php\">here</a> ";
+				echo "for the previous page.";
 			}
 		}
 		
